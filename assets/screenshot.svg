@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700" role="img" aria-labelledby="title desc">
+  <title id="title">Promodo Social Time Credit UI</title>
+  <desc id="desc">Dark floating panel showing a Pomodoro timer with mode selector, preset selector, and action buttons.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#10131a"/>
+      <stop offset="100%" stop-color="#1d2430"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#22252d"/>
+      <stop offset="100%" stop-color="#171a20"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="20" stdDeviation="24" flood-color="#000000" flood-opacity="0.45"/>
+    </filter>
+    <style>
+      .label { font: 600 16px Arial, Helvetica, sans-serif; fill: #cfd4dc; }
+      .small { font: 600 13px Arial, Helvetica, sans-serif; fill: #9ca3af; }
+      .tiny { font: 700 12px Arial, Helvetica, sans-serif; fill: #a7b0bc; letter-spacing: 0.12em; }
+      .time { font: 700 54px Arial, Helvetica, sans-serif; fill: #20d7ff; }
+      .buttonText { font: 700 13px Arial, Helvetica, sans-serif; fill: #ffffff; letter-spacing: 0.06em; }
+      .chipText { font: 700 14px Arial, Helvetica, sans-serif; fill: #f3f4f6; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="700" fill="url(#bg)"/>
+  <circle cx="175" cy="120" r="110" fill="#0ea5e9" opacity="0.12"/>
+  <circle cx="1030" cy="560" r="190" fill="#22c55e" opacity="0.08"/>
+  <circle cx="1040" cy="130" r="90" fill="#f59e0b" opacity="0.10"/>
+
+  <g filter="url(#shadow)">
+    <rect x="740" y="110" rx="18" ry="18" width="320" height="360" fill="url(#panel)" stroke="#323743" stroke-width="2"/>
+    <rect x="760" y="128" rx="10" ry="10" width="70" height="20" fill="#2b303b"/>
+    <text x="795" y="143" text-anchor="middle" class="tiny">STOPPED</text>
+
+    <text x="900" y="222" text-anchor="middle" class="time">0m 0s</text>
+
+    <text x="770" y="265" class="label">Mode:</text>
+    <rect x="770" y="275" rx="8" ry="8" width="280" height="34" fill="#303542" stroke="#4b5563"/>
+    <text x="786" y="297" class="small">Social Credit (Hybrid)</text>
+    <polygon points="1034,289 1046,289 1040,299" fill="#cfd4dc"/>
+
+    <text x="770" y="332" class="label">Preset:</text>
+    <rect x="770" y="342" rx="8" ry="8" width="280" height="34" fill="#303542" stroke="#4b5563"/>
+    <text x="786" y="364" class="small">Focus 30m</text>
+    <polygon points="1034,356 1046,356 1040,366" fill="#cfd4dc"/>
+
+    <rect x="770" y="398" rx="10" ry="10" width="84" height="42" fill="#22c55e"/>
+    <rect x="868" y="398" rx="10" ry="10" width="84" height="42" fill="#f59e0b"/>
+    <rect x="966" y="398" rx="10" ry="10" width="84" height="42" fill="#ef4444"/>
+    <text x="812" y="425" text-anchor="middle" class="buttonText">PLAY</text>
+    <text x="910" y="425" text-anchor="middle" class="buttonText">STOP</text>
+    <text x="1008" y="425" text-anchor="middle" class="buttonText">RESET</text>
+  </g>
+
+  <g>
+    <text x="90" y="140" class="tiny">TAMPERMONKEY USERSCRIPT</text>
+    <text x="90" y="210" fill="#f8fafc" font-family="Arial, Helvetica, sans-serif" font-size="58" font-weight="800">Promodo Social Time Credit</text>
+    <text x="90" y="264" fill="#cbd5e1" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="500">Hybrid focus timer with draggable controls and social-site blocking.</text>
+
+    <rect x="90" y="324" rx="16" ry="16" width="180" height="52" fill="#1f2937" stroke="#374151"/>
+    <text x="180" y="357" text-anchor="middle" class="chipText">Draggable Panel</text>
+
+    <rect x="286" y="324" rx="16" ry="16" width="180" height="52" fill="#1f2937" stroke="#374151"/>
+    <text x="376" y="357" text-anchor="middle" class="chipText">Social Credit</text>
+
+    <rect x="482" y="324" rx="16" ry="16" width="180" height="52" fill="#1f2937" stroke="#374151"/>
+    <text x="572" y="357" text-anchor="middle" class="chipText">Pomodoro Timer</text>
+  </g>
+</svg>
