@@ -74,9 +74,10 @@
     const syncUI = () => {
         const status = GM_getValue("pomoStatus", "stop");
         const credit = clampSeconds(GM_getValue("socialCredit", 0));
+        const elapsed = clampSeconds(GM_getValue("elapsedSeconds", 0));
         
         // Update เฉพาะ Text ไม่ Re-render ทั้งก้อน (แก้ปัญหา Dropdown หลุด)
-        document.getElementById('display-time').innerText = formatSeconds(credit);
+        document.getElementById('display-time').innerText = formatSeconds(elapsed);
         document.getElementById('status-tag').innerText = status.toUpperCase();
 
         // Overlay Logic
@@ -88,7 +89,11 @@
     };
 
     // Events
-    document.getElementById('btn-play').onclick = () => GM_setValue("pomoStatus", "play");
+    document.getElementById('btn-play').onclick = () => {
+        GM_setValue("elapsedSeconds", 0);
+        GM_setValue("pomoStatus", "play");
+        syncUI();
+    };
     document.getElementById('btn-stop').onclick = () => GM_setValue("pomoStatus", "stop");
 
     // --- 4. Main Loop ---
@@ -96,6 +101,9 @@
         const status = GM_getValue("pomoStatus", "stop");
 
         if (status === "play") {
+            const elapsed = clampSeconds(GM_getValue("elapsedSeconds", 0));
+            GM_setValue("elapsedSeconds", elapsed + 1);
+
             let credit = Number(GM_getValue("socialCredit", 0)) || 0;
             if (isSocialPage) {
                 credit = Math.max(0, credit - 1);
