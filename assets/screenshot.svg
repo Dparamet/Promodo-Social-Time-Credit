@@ -29,42 +29,42 @@
   <circle cx="1040" cy="130" r="90" fill="#f59e0b" opacity="0.10"/>
 
   <g filter="url(#shadow)">
-    <rect x="740" y="110" rx="18" ry="18" width="320" height="360" fill="url(#panel)" stroke="#323743" stroke-width="2"/>
-    <rect x="760" y="128" rx="10" ry="10" width="70" height="20" fill="#2b303b"/>
-    <text x="795" y="143" text-anchor="middle" class="tiny">STOPPED</text>
+    <rect x="700" y="86" rx="18" ry="18" width="356" height="400" fill="url(#panel)" stroke="#323743" stroke-width="2"/>
+    <rect x="720" y="106" rx="10" ry="10" width="76" height="20" fill="#2b303b"/>
+    <text x="758" y="121" text-anchor="middle" class="tiny">STOPPED</text>
 
-    <text x="900" y="222" text-anchor="middle" class="time">0m 0s</text>
+    <text x="878" y="194" text-anchor="middle" class="time">30m 00s</text>
 
-    <text x="770" y="265" class="label">Mode:</text>
-    <rect x="770" y="275" rx="8" ry="8" width="280" height="34" fill="#303542" stroke="#4b5563"/>
-    <text x="786" y="297" class="small">Social Credit (Hybrid)</text>
-    <polygon points="1034,289 1046,289 1040,299" fill="#cfd4dc"/>
+    <text x="724" y="244" class="label">Mode</text>
+    <rect x="724" y="254" rx="8" ry="8" width="308" height="34" fill="#303542" stroke="#4b5563"/>
+    <text x="740" y="276" class="small">Social Credit (Hybrid)</text>
+    <polygon points="1010,268 1022,268 1016,278" fill="#cfd4dc"/>
 
-    <text x="770" y="332" class="label">Preset:</text>
-    <rect x="770" y="342" rx="8" ry="8" width="280" height="34" fill="#303542" stroke="#4b5563"/>
-    <text x="786" y="364" class="small">Focus 30m</text>
-    <polygon points="1034,356 1046,356 1040,366" fill="#cfd4dc"/>
+    <text x="724" y="314" class="label">Preset</text>
+    <rect x="724" y="324" rx="8" ry="8" width="308" height="34" fill="#303542" stroke="#4b5563"/>
+    <text x="740" y="346" class="small">Focus 30m</text>
+    <polygon points="1010,338 1022,338 1016,348" fill="#cfd4dc"/>
 
-    <rect x="770" y="398" rx="10" ry="10" width="84" height="42" fill="#22c55e"/>
-    <rect x="868" y="398" rx="10" ry="10" width="84" height="42" fill="#f59e0b"/>
-    <rect x="966" y="398" rx="10" ry="10" width="84" height="42" fill="#ef4444"/>
-    <text x="812" y="425" text-anchor="middle" class="buttonText">PLAY</text>
-    <text x="910" y="425" text-anchor="middle" class="buttonText">STOP</text>
-    <text x="1008" y="425" text-anchor="middle" class="buttonText">RESET</text>
+    <rect x="724" y="378" rx="10" ry="10" width="88" height="44" fill="#22c55e"/>
+    <rect x="820" y="378" rx="10" ry="10" width="88" height="44" fill="#f59e0b"/>
+    <rect x="916" y="378" rx="10" ry="10" width="88" height="44" fill="#ef4444"/>
+    <text x="768" y="406" text-anchor="middle" class="buttonText">PLAY</text>
+    <text x="864" y="406" text-anchor="middle" class="buttonText">STOP</text>
+    <text x="960" y="406" text-anchor="middle" class="buttonText">RESET</text>
   </g>
 
   <g>
-    <text x="90" y="140" class="tiny">TAMPERMONKEY USERSCRIPT</text>
-    <text x="90" y="210" fill="#f8fafc" font-family="Arial, Helvetica, sans-serif" font-size="58" font-weight="800">Promodo Social Time Credit</text>
-    <text x="90" y="264" fill="#cbd5e1" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="500">Hybrid focus timer with draggable controls and social-site blocking.</text>
+    <text x="86" y="132" class="tiny">TAMPERMONKEY USERSCRIPT</text>
+    <text x="86" y="202" fill="#f8fafc" font-family="Arial, Helvetica, sans-serif" font-size="54" font-weight="800">Promodo Social Time Credit</text>
+    <text x="86" y="252" fill="#cbd5e1" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="500">Hybrid focus timer with draggable controls and social-site blocking.</text>
 
-    <rect x="90" y="324" rx="16" ry="16" width="180" height="52" fill="#1f2937" stroke="#374151"/>
-    <text x="180" y="357" text-anchor="middle" class="chipText">Draggable Panel</text>
+    <rect x="86" y="320" rx="16" ry="16" width="168" height="50" fill="#1f2937" stroke="#374151"/>
+    <text x="170" y="352" text-anchor="middle" class="chipText">Draggable Panel</text>
 
-    <rect x="286" y="324" rx="16" ry="16" width="180" height="52" fill="#1f2937" stroke="#374151"/>
-    <text x="376" y="357" text-anchor="middle" class="chipText">Social Credit</text>
+    <rect x="268" y="320" rx="16" ry="16" width="168" height="50" fill="#1f2937" stroke="#374151"/>
+    <text x="352" y="352" text-anchor="middle" class="chipText">Social Credit</text>
 
-    <rect x="482" y="324" rx="16" ry="16" width="180" height="52" fill="#1f2937" stroke="#374151"/>
-    <text x="572" y="357" text-anchor="middle" class="chipText">Pomodoro Timer</text>
+    <rect x="450" y="320" rx="16" ry="16" width="168" height="50" fill="#1f2937" stroke="#374151"/>
+    <text x="534" y="352" text-anchor="middle" class="chipText">Pomodoro Timer</text>
   </g>
 </svg>
