@@ -1,12 +1,12 @@
 # Promodo Social Time Credit
 
-A compact Tampermonkey userscript that combines a Pomodoro timer with a social-credit mode. It adds a draggable control panel to the page, tracks time in the background, and can block focus when the timer reaches zero on social sites.
+A compact Tampermonkey userscript focused on a simple MVP flow: start and stop. It adds a draggable control panel to the page, tracks social credit in the background, and can block focus when time reaches zero on social sites.
 
 ## Features
 
 - Draggable floating panel
-- Social-credit mode and fixed-timer mode
-- Play, stop, and reset controls
+- Start and stop controls only (MVP)
+- Social credit accrues off social sites and decreases on social sites
 - Persistent state via Tampermonkey storage
 - Full-screen warning overlay on supported social sites when time runs out
 
@@ -23,10 +23,10 @@ A compact Tampermonkey userscript that combines a Pomodoro timer with a social-c
 
 ## Usage
 
-- Select `Social Credit (Hybrid)` to earn credit on non-social pages and spend it on social pages.
-- Select `Fixed Timer (Pomodoro)` to count down the chosen preset.
-- Use `PLAY`, `STOP`, and `RESET` to control the session.
-- Drag the panel by clicking anywhere except the buttons and dropdowns.
+- Press `PLAY` to start tracking.
+- Press `STOP` to pause tracking.
+- While running: time increases on non-social sites and decreases on social sites.
+- Drag the panel by clicking anywhere except the buttons.
 
 ## Files
 

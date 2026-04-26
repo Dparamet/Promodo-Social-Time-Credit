@@ -19,9 +19,7 @@
         button { cursor: pointer; border: none; border-radius: 4px; padding: 8px; flex: 1; font-weight: bold; font-size: 11px; text-transform: uppercase; }
         .btn-play { background: #2ecc71; color: white; }
         .btn-stop { background: #e67e22; color: white; }
-        .btn-reset { background: #e74c3c; color: white; }
         #display-time { font-size: 24px; text-align: center; margin: 10px 0; color: #00d2ff; font-weight: bold; }
-        select { background: #333; color: white; border: 1px solid #555; width: 100%; padding: 5px; margin-top: 5px; border-radius: 4px; }
         .overlay { position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.98); z-index:999999; display:none; flex-direction:column; justify-content:center; align-items:center; color:white; pointer-events:all; }
     `);
 
@@ -31,24 +29,12 @@
     panel.innerHTML = `
         <div id="status-tag" style="font-size:10px; color:#aaa; text-align:center;">STOPPED</div>
         <div id="display-time">0m 0s</div>
-        <div style="font-size:12px;">
-            Mode: <select id="mode-select">
-                <option value="social">Social Credit (Hybrid)</option>
-                <option value="timer">Fixed Timer (Pomodoro)</option>
-            </select>
-            Preset: <select id="preset-select">
-                <option value="1800">Focus 30m</option>
-                <option value="3600">Focus 60m</option>
-                <option value="5400">Focus 90m</option>
-                <option value="300">Break 5m</option>
-                <option value="900">Break 15m</option>
-                <option value="1800">Break 30m</option>
-            </select>
+        <div style="font-size:12px; color:#a9a9a9; text-align:center; margin-bottom:6px;">
+            MVP: Start / Stop only
         </div>
         <div class="btn-group">
             <button class="btn-play" id="btn-play">PLAY</button>
             <button class="btn-stop" id="btn-stop">STOP</button>
-            <button class="btn-reset" id="btn-reset">RESET</button>
         </div>
     `;
     document.body.appendChild(panel);
@@ -86,19 +72,15 @@
     };
 
     const syncUI = () => {
-        const mode = GM_getValue("pomoMode", "social");
         const status = GM_getValue("pomoStatus", "stop");
         const credit = clampSeconds(GM_getValue("socialCredit", 0));
-        const timerVal = clampSeconds(GM_getValue("timerValue", 0));
-
-        let currentSeconds = (mode === "social") ? credit : timerVal;
         
         // Update เฉพาะ Text ไม่ Re-render ทั้งก้อน (แก้ปัญหา Dropdown หลุด)
-        document.getElementById('display-time').innerText = formatSeconds(currentSeconds);
+        document.getElementById('display-time').innerText = formatSeconds(credit);
         document.getElementById('status-tag').innerText = status.toUpperCase();
 
         // Overlay Logic
-        if (isSocialPage && status === "play" && currentSeconds <= 0) {
+        if (isSocialPage && status === "play" && credit <= 0) {
             overlay.style.display = "flex";
         } else {
             overlay.style.display = "none";
@@ -106,43 +88,21 @@
     };
 
     // Events
-    document.getElementById('mode-select').onchange = (e) => GM_setValue("pomoMode", e.target.value);
     document.getElementById('btn-play').onclick = () => GM_setValue("pomoStatus", "play");
     document.getElementById('btn-stop').onclick = () => GM_setValue("pomoStatus", "stop");
-    document.getElementById('btn-reset').onclick = () => {
-        const preset = document.getElementById('preset-select').value;
-        if (GM_getValue("pomoMode") === "timer") {
-            GM_setValue("timerValue", parseInt(preset));
-        } else {
-            GM_setValue("socialCredit", 0); // รีเซ็ตแต้มสะสม
-        }
-        GM_setValue("pomoStatus", "stop");
-        syncUI();
-    };
 
     // --- 4. Main Loop ---
     setInterval(() => {
         const status = GM_getValue("pomoStatus", "stop");
-        const mode = GM_getValue("pomoMode", "social");
-        
+
         if (status === "play") {
-            if (mode === "social") {
-                let credit = Number(GM_getValue("socialCredit", 0)) || 0;
-                if (isSocialPage) {
-                    credit = Math.max(0, credit - 1);
-                } else {
-                    credit += 0.2;
-                }
-                GM_setValue("socialCredit", credit);
+            let credit = Number(GM_getValue("socialCredit", 0)) || 0;
+            if (isSocialPage) {
+                credit = Math.max(0, credit - 1);
             } else {
-                let timerVal = Number(GM_getValue("timerValue", 0)) || 0;
-                if (timerVal > 0) {
-                    timerVal--;
-                } else {
-                    timerVal = 0;
-                }
-                GM_setValue("timerValue", timerVal);
+                credit += 0.2;
             }
+            GM_setValue("socialCredit", credit);
         }
         syncUI();
     }, 1000);
